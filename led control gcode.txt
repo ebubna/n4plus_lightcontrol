@@ -1,0 +1,23 @@
+#####################################################################
+# LED Control
+#####################################################################
+[gcode_shell_command toggleled]
+command: python /home/mks/toggleled.py
+timeout: 30.
+verbose: True
+
+[gcode_shell_command toggleovr]
+command: python /home/mks/toggleovr.py
+timeout: 30.
+verbose: True
+
+
+[gcode_macro FLASHLIGHT_TOG]
+description: Toggle on Hotend LEDs
+gcode:
+  RUN_SHELL_COMMAND CMD=toggleled
+
+[gcode_macro Overhead_TOG]
+description: Toggle on Overhead LEDs
+gcode:
+  RUN_SHELL_COMMAND CMD=toggleovr
